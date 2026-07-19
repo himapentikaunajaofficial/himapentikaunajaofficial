@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIMAPENTIKA UNAJA 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#081c36,#0d2b4f,#061426);
+    color:white;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.4s;
+    z-index:1000;
+}
+
+nav.scrolled{
+    background:#071524;
+    box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.nav-left img{
+    height:40px;
+}
+
+.nav-right a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-right a:hover{
+    color:#00ffd0;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero h1{
+    font-size:55px;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.hero span{
+    color:#00ffd0;
+}
+
+/* Background math animation */
+.math-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.math-bg span{
+    position:absolute;
+    color:#00ffd0;
+    font-size:22px;
+    opacity:0.1;
+    animation:float 15s linear infinite;
+}
+
+@keyframes float{
+    from{ transform:translateY(100vh) rotate(0deg); }
+    to{ transform:translateY(-100vh) rotate(360deg); }
+}
+
+/* SECTION */
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:40px;
+    color:#00ffd0;
+}
+
+/* PEMBINA */
+.pembina{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.pembina img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:4px solid #00ffd0;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+/* TENTANG */
+.about p{
+    margin-bottom:20px;
+    line-height:1.8;
+    text-align:justify;
+}
+
+/* STRUKTUR ORGANISASI */
+.struktur-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.org-card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.org-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,255,208,0.3);
+}
+
+.org-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #00ffd0;
+    margin-bottom:15px;
+}
+
+/* DIVISI */
+.divisi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,255,208,0.3);
+}
+
+.card img{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+/* AGENDA / BERITA */
+.agenda-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.news-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.news-card:hover{
+    transform:translateY(-10px);
+}
+
+.news-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.news-content{
+    padding:25px;
+}
+
+.news-content h3{
+    color:#00ffd0;
+    margin-bottom:15px;
+}
+
+/* GALERI */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery-item{
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.gallery-item img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+footer{
+    background:#050f1c;
+    text-align:center;
+    padding:50px 10%;
+}
+
+footer img{
+    width:35px;
+    margin:10px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:38px;
+    }
+    .struktur-grid, .agenda-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+<div class="nav-left">
+    <img src="logo-unaja.png" alt="Logo UNAJA">
+    <img src="logo-fst.png" alt="Logo FST"> <!-- Ganti dengan logo Fakultas Sains dan Teknologi -->
+</div>
+
+<div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#pembina">Pembina</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#struktur">Struktur</a>
+    <a href="#divisi">Divisi</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#galeri">Galeri</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div>
+<h1>WELCOME TO<br><span>HIMAPENTIKA UNAJA</span></h1>
+<p style="margin-top:20px; font-size:22px; opacity:0.9;">Himpunan Mahasiswa Pendidikan Matematika<br>Fakultas Sains dan Teknologi Universitas Adiwangsa Jambi</p>
+</div>
+
+<div class="math-bg">
+<span style="left:10%">π</span>
+<span style="left:25%">∑</span>
+<span style="left:40%">%</span>
+<span style="left:60%">√</span>
+<span style="left:75%">∞</span>
+<span style="left:85%">ƒ</span>
+</div>
+</section>
+
+<!-- PEMBINA -->
+<section id="pembina">
+<h2 class="section-title">Pembina HIMAPENTIKA</h2>
+<div class="pembina">
+    <img src="arie-setiawan.jpg" alt="Arie Setiawan">
+    <h3>Arie Setiawan, S.Si., M.Pd</h3>
+    <p>Pembina HIMAPENTIKA UNAJA</p>
+</div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang" class="about">
+<h2 class="section-title">Tentang HIMAPENTIKA</h2>
+
+<p>HIMAPENTIKA (Himpunan Mahasiswa Pendidikan Matematika) adalah organisasi kemahasiswaan yang mewadahi mahasiswa Program Studi Pendidikan Matematika di <strong>Fakultas Sains dan Teknologi Universitas Adiwangsa Jambi</strong> sebagai ruang pengembangan akademik, minat, bakat, serta kepemimpinan.</p>
+
+<p><b>HIMAPENTIKA resmi terbentuk pada 13 Maret 2025</b> sebagai wujud semangat kolektif mahasiswa Pendidikan Matematika untuk berorganisasi, berkolaborasi, dan berkontribusi secara aktif dalam lingkungan kampus maupun masyarakat.</p>
+
+<p>Pelantikan ketua pertama dilaksanakan pada 15 Maret 2025 dengan <b>Sherly Siti Aisyah</b> sebagai ketua perdana. Kepengurusan awal ini menjadi tonggak penting dalam membangun fondasi organisasi serta budaya berorganisasi.</p>
+
+<p>Memasuki periode 2025–2026, estafet kepemimpinan dilanjutkan oleh <b>Rafly Akbar</b> yang resmi dilantik pada 15 Januari 2026, Dibawah masa kepemimpinan Rafly Akbar HIMAPENTIKA menjadi organisasi yang aktif dan kreatif dan banyak mengikuti dan membuat kegiatan organisasi mahasiswa yang mengikuti trend sekarang.</p>
+
+<p>HIMAPENTIKA berkomitmen menjadi organisasi yang inklusif, dinamis, adaptif, dan progresif dalam mengembangkan kualitas mahasiswa Pendidikan Matematika Fakultas Sains dan Teknologi UNAJA.</p>
+</section>
+
+<!-- STRUKTUR ORGANISASI -->
+<section id="struktur">
+<h2 class="section-title">Badan Pengurus Harian 2025-2026</h2>
+
+<div class="struktur-grid">
+
+    <div class="org-card">
+        <img src="rafly-akbar.jpg" alt="Rafly Akbar">
+        <h3>Rafly Akbar</h3>
+        <p><strong>Ketua Umum</strong></p>
+    </div>
+
+    <div class="org-card">
+        <img src="tasa-bila.jpg" alt="Tasa Bila Noprisia">
+        <h3>Tasa Bila Noprisia</h3>
+        <p><strong>Wakil Ketua Umum</strong></p>
+    </div>
+
+    <div class="org-card">
+        <img src="nela-padila.jpg" alt="Nela Padila">
+        <h3>Nela Padila</h3>
+        <p><strong>Sekretaris</strong></p>
+    </div>
+
+    <div class="org-card">
+        <img src="imratul-adila.jpg" alt="Imratul Adila">
+        <h3>Imratul Adila</h3>
+        <p><strong>Bendahara</strong></p>
+    </div>
+
+</div>
+
+<h2 class="section-title" style="margin-top:80px;">Divisi & Pengurus</h2>
+
+<div class="struktur-grid">
+
+    <!-- Persiapan Organisasi -->
+    <div class="org-card">
+        <img src="zulfani-delfianti.jpg" alt="Zulfani Delfianti">
+        <h3>Zulfani Delfianti</h3>
+        <p>Ketua Divisi Persiapan Organisasi</p>
+    </div>
+    <div class="org-card">
+        <img src="ipo-evi.jpg" alt="Ipo Evi Sabila">
+        <h3>Ipo Evi Sabila</h3>
+        <p>Anggota Divisi Persiapan Organisasi</p>
+    </div>
+    <div class="org-card">
+        <img src="elsa-salsabila.jpg" alt="Elsa Salsabila">
+        <h3>Elsa Salsabila</h3>
+        <p>Anggota Divisi Persiapan Organisasi</p>
+    </div>
+    <div class="org-card">
+        <img src="shela-dwi.jpg" alt="Shela Dwi Pratiwi">
+        <h3>Shela Dwi Pratiwi</h3>
+        <p>Anggota Divisi Persiapan Organisasi</p>
+    </div>
+
+    <!-- Riset -->
+    <div class="org-card">
+        <img src="arvita-rimbo.jpg" alt="Arvita Rimbo Wati">
+        <h3>Arvita Rimbo Wati</h3>
+        <p>Ketua Divisi Riset</p>
+    </div>
+    <div class="org-card">
+        <img src="winda.jpg" alt="Winda">
+        <h3>Winda</h3>
+        <p>Anggota Divisi Riset</p>
+    </div>
+    <div class="org-card">
+        <img src="jenny-olivia.jpg" alt="Jenny Olivia Audita">
+        <h3>Jenny Olivia Audita</h3>
+        <p>Anggota Divisi Riset</p>
+    </div>
+    <div class="org-card">
+        <img src="sarah-nur.jpg" alt="Sarah Nur Hamidah">
+        <h3>Sarah Nur Hamidah</h3>
+        <p>Anggota Divisi Riset</p>
+    </div>
+    <div class="org-card">
+        <img src="fitria-wulandari.jpg" alt="Fitria Wulandari">
+        <h3>Fitria Wulandari</h3>
+        <p>Anggota Divisi Riset</p>
+    </div>
+
+    <!-- Creative Media -->
+    <div class="org-card">
+        <img src="eka-nelda.jpg" alt="Eka Nelda Rahmadani">
+        <h3>Eka Nelda Rahmadani</h3>
+        <p>Ketua Divisi Creative Media</p>
+    </div>
+    <div class="org-card">
+        <img src="merlina-sari.jpg" alt="Merlina Sari">
+        <h3>Merlina Sari</h3>
+        <p>Anggota Divisi Creative Media</p>
+    </div>
+    <div class="org-card">
+        <img src="khairul-anwar.jpg" alt="Muhammad Khairul Anwar">
+        <h3>Muhammad Khairul Anwar</h3>
+        <p>Anggota Divisi Creative Media</p>
+    </div>
+
+    <!-- PSDM & Sosmas -->
+    <div class="org-card">
+        <img src="adreeanto-prabowo.jpg" alt="Adreeanto Prabowo">
+        <h3>Adreeanto Prabowo</h3>
+        <p>Ketua Divisi PSDM & Sosmas</p>
+    </div>
+    <div class="org-card">
+        <img src="syam-khati.jpg" alt="Syam Khati Amrina">
+        <h3>Syam Khati Amrina</h3>
+        <p>Anggota Divisi PSDM & Sosmas</p>
+    </div>
+    <div class="org-card">
+        <img src="mutiya-ramanita.jpg" alt="Mutiya Ramanita">
+        <h3>Mutiya Ramanita</h3>
+        <p>Anggota Divisi PSDM & Sosmas</p>
+    </div>
+    <div class="org-card">
+        <img src="kamelia-putri.jpg" alt="Kamelia Putri">
+        <h3>Kamelia Putri</h3>
+        <p>Anggota Divisi PSDM & Sosmas</p>
+    </div>
+
+</div>
+</section>
+
+<!-- DIVISI -->
+<section id="divisi">
+<h2 class="section-title">Divisi HIMAPENTIKA</h2>
+
+<div class="divisi-grid">
+    <div class="card">
+        <img src="coming-soon.jpg" alt="Persiapan Organisasi">
+        <h3>Persiapan Organisasi</h3>
+        <p>Memastikan kelancaran operasional organisasi dan koordinasi internal.</p>
+    </div>
+
+    <div class="card">
+        <img src="coming-soon.jpg" alt="Riset">
+        <h3>Riset</h3>
+        <p>Mengembangkan kegiatan penelitian dan publikasi ilmiah mahasiswa.</p>
+    </div>
+
+    <div class="card">
+        <img src="coming-soon.jpg" alt="Creative Media">
+        <h3>Creative Media</h3>
+        <p>Mengelola konten kreatif, dokumentasi, dan promosi organisasi.</p>
+    </div>
+
+    <div class="card">
+        <img src="coming-soon.jpg" alt="PSDM & Sosmas">
+        <h3>PSDM & Sosmas</h3>
+        <p>Pengembangan Sumber Daya Manusia dan Sosial Masyarakat.</p>
+    </div>
+</div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda">
+<h2 class="section-title">Agenda & Berita HIMAPENTIKA</h2>
+
+<div class="agenda-grid">
+
+    <div class="news-card">
+        <img src="ramadhan-vibes.jpg" alt="Ramadhan Vibes">
+        <div class="news-content">
+            <h3>HIMAPENTIKA OPEN PEDULI & OPEN DONASI & Ramadhan Vibes 30 Hari</h3>
+            <p>Divisi Creative Media HIMAPENTIKA UNAJA Sukses Hadirkan Konten Spesial Ramadhan Selama 30 Hari Penuh & BPH HIMAPENTIKA SUKSES UNTUK MENGGALANG OPEN DONASI PEDULI SELAMA BULAN RAMADHAN
+Divisi Creative Media Himpunan Mahasiswa Pendidikan Matematika (HIMAPENTIKA) Universitas Adiwangsa Jambi (UNAJA) berhasil mencatat prestasi gemilang selama bulan Ramadhan tahun ini. Divisi ini sukses menghadirkan serangkaian konten spesial Ramadhan secara konsisten selama 30 hari penuh.
+Melalui berbagai platform media sosial resmi organisasi, Divisi Creative Media mempublikasikan postingan harian yang penuh inspirasi, motivasi, dan nilai-nilai keislaman. Konten-konten tersebut tidak hanya menyajikan ayat-ayat suci Al-Qur’an dan hadits, tetapi juga menyajikan tips berpuasa yang sehat, kisah inspiratif, serta pesan-pesan kebaikan yang relevan dengan kehidupan mahasiswa. Desain yang menarik dan kreatif membuat setiap konten mudah dibaca dan cepat menyebar di kalangan mahasiswa serta masyarakat luas.
+Selain konten inspiratif, Divisi Creative Media juga turut aktif menyebarkan semangat berbagi dan kepedulian sosial. Puncaknya adalah kegiatan Open Donasi yang digagas dan dikelola oleh divisi ini. Melalui kampanye yang masif di media sosial, kegiatan ini berhasil mengumpulkan donasi yang cukup signifikan dari mahasiswa, dosen, serta alumni. Hasil donasi tersebut kemudian disalurkan kepada masyarakat sekitar kampus yang membutuhkan, berupa paket sembako, takjil, dan bantuan kebutuhan pokok lainnya.
+Koordinator Divisi Creative Media HIMAPENTIKA, [Nama Koordinator], menyatakan bahwa kegiatan ini merupakan wujud nyata dari semangat Ramadhan yang ingin diwujudkan organisasi.
+“Kami ingin memanfaatkan kekuatan media untuk tidak hanya sekadar berkreasi, tetapi juga memberikan manfaat nyata. Alhamdulillah, respons dari civitas akademika UNAJA sangat positif. Banyak yang tergerak untuk berpartisipasi dalam donasi setelah melihat konten-konten yang kami buat,” ujarnya.
+Keberhasilan program Ramadhan ini semakin memperkuat peran Divisi Creative Media sebagai salah satu divisi yang aktif dan berpengaruh di dalam HIMAPENTIKA. Kegiatan ini tidak hanya meningkatkan engagement organisasi di media sosial, tetapi juga memberikan dampak sosial yang positif bagi masyarakat sekitar kampus.
+Dengan semangat yang terus berkobar, Divisi Creative Media HIMAPENTIKA UNAJA membuktikan bahwa kreativitas dapat menjadi sarana dakwah dan kepedulian yang efektif di era digital saat ini.</p>
+            <small style="color:#00ffd0;">Maret 2026</small>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="bukber.jpg" alt="Bukber">
+        <div class="news-content">
+            <h3>Bukber Bersama HIMAPENTIKA</h3>
+            <p>Hangatnya Silaturahmi HIMAPENTIKA di Bulan Ramadhan Bersama Dosen dan Seluruh Mahasiswa Pendidikan Matematika
+Himpunan Mahasiswa Pendidikan Matematika (HIMAPENTIKA) Universitas Adiwangsa Jambi menggelar momen kebersamaan yang penuh kehangatan bersama dosen pembina dan seluruh mahasiswa Program Studi Pendidikan Matematika. Acara silaturahmi Ramadhan ini berlangsung dalam suasana kekeluargaan yang kental, mempererat tali persaudaraan antar civitas akademika Prodi Pendidikan Matematika.
+Kegiatan yang digelar di bulan suci Ramadhan ini menjadi ajang yang sangat bermakna. Pengurus HIMAPENTIKA, dosen, serta mahasiswa dari berbagai angkatan berkumpul dalam satu forum yang penuh keakraban. Tidak hanya sekadar berkumpul, acara ini juga diisi dengan sesi sharing ilmu dan pengalaman yang inspiratif. Para dosen membagikan nasihat serta motivasi dalam menempuh perkuliahan, sementara pengurus dan mahasiswa senior berbagi cerita tentang perjalanan organisasi serta tips sukses kuliah di tengah kesibukan.
+Suasana kebersamaan yang hangat terasa begitu kental sepanjang acara. Tawa, diskusi ringan, dan doa bersama menjadi bagian yang tak terpisahkan. Banyak mahasiswa yang merasa terharu dan termotivasi setelah mendengar pengalaman serta wejangan dari para dosen pembina yang selama ini mendampingi mereka.
+Ketua HIMAPENTIKA periode 2025-2026, [Rafly Akbar], menyampaikan bahwa acara ini sengaja diadakan untuk memperkuat rasa kekeluargaan di dalam program studi. “Di bulan Ramadhan yang penuh berkah ini, kami ingin menciptakan momen di mana seluruh civitas akademika Pendidikan Matematika bisa saling menguatkan, berbagi ilmu, dan mempererat silaturahmi. Semoga kebersamaan ini dapat membawa berkah dan semangat baru bagi kami semua,” ujarnya.
+Dosen Pembina HIMAPENTIKA juga mengapresiasi inisiatif pengurus. Beliau menekankan pentingnya menjaga kebersamaan dan silaturahmi, terutama di tengah kesibukan akademik yang padat.
+Acara silaturahmi Ramadhan HIMAPENTIKA ini tidak hanya menjadi kenangan indah, tetapi juga menjadi pengingat bahwa di balik kesibukan organisasi dan perkuliahan, terdapat ikatan kekeluargaan yang kuat di Program Studi Pendidikan Matematika Universitas Adiwangsa Jambi.</p>
+            <small style="color:#00ffd0;">Maret 2026</small>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="esport.jpg" alt="Inter-Hima Esport MLBB Tour UNAJA 2026 ">
+        <div class="news-content">
+            <h3>Inter-Hima Esport MLBB Tour UNAJA 2026</h3>
+            <p>HIMAPENTIKA Kolaborasi dengan HIMTI dan SWARNALOKA Sukses Gelar Turnamen Mobile Legends Antar Himpunan
+Himpunan Mahasiswa Pendidikan Matematika (HIMAPENTIKA) Universitas Adiwangsa Jambi berhasil menghadirkan kegiatan yang seru dan dinamis melalui kolaborasi dengan Himpunan Mahasiswa Teknik Informatika (HIMTI) dan SWARNALOKA. Ketiga organisasi ini bekerja sama menyelenggarakan Turnamen Mobile Legends Antar Himpunan yang memperebutkan piala bergengsi dan berbagai hadiah menarik.
+Acara yang berlangsung meriah ini berhasil menyedot antusiasme mahasiswa dari berbagai program studi di lingkungan Universitas Adiwangsa Jambi. Puluhan tim dari berbagai himpunan mahasiswa ikut serta dalam kompetisi, menjadikan turnamen ini sebagai salah satu kegiatan kemahasiswaan yang paling ramai dan ditunggu-tunggu.
+Selain sebagai ajang kompetisi, turnamen ini juga membawa semangat positif dengan mempersatukan mahasiswa lintas program studi. Suasana pertandingan dipenuhi sorak-sorai dan semangat sportivitas yang tinggi. Para peserta saling mendukung dan menunjukkan permainan yang fair play, membuktikan bahwa kompetisi tidak hanya tentang kemenangan, tetapi juga tentang membangun kekompakan dan persaudaraan antar organisasi.
+Ketua HIMAPENTIKA, [Nama Ketua], menyatakan bahwa kolaborasi ini merupakan langkah strategis untuk memperluas jaringan dan mempererat hubungan antar himpunan. “Melalui turnamen ini, kami ingin menunjukkan bahwa HIMAPENTIKA tidak hanya fokus pada kegiatan akademik dan edukasi, tetapi juga mampu berkontribusi dalam menciptakan kegiatan yang menyenangkan dan menyatukan mahasiswa,” ujarnya.
+Turnamen Mobile Legends ini berjalan dengan lancar dan sukses berkat kerja sama yang solid antar panitia dari ketiga organisasi. Banyak peserta mengaku senang karena bisa bermain sambil menjalin silaturahmi dengan mahasiswa dari prodi lain yang selama ini jarang bertemu.
+Kegiatan ini diharapkan dapat menjadi agenda rutin tahunan yang semakin besar dan semakin banyak diikuti oleh seluruh elemen mahasiswa. Kolaborasi antar himpunan seperti ini menjadi bukti nyata bahwa perbedaan program studi bukanlah penghalang untuk bersatu dalam semangat kompetisi yang sehat dan positif.</p>
+            <small style="color:#00ffd0;">April 2026</small>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="photoshoot.jpg" alt="Photoshoot BPH">
+        <div class="news-content">
+            <h3>Photoshoot BPH & Dosen Pembina</h3>
+            <p>Badan Pengurus Harian HIMAPENTIKA Periode 2025-2026 Gelar Sesi Foto Bersama Dosen Pembina
+Dalam rangka menandai awal kepengurusan yang baru, Badan Pengurus Harian Himpunan Mahasiswa Pendidikan Matematika (HIMAPENTIKA) Universitas Adiwangsa Jambi periode 2025-2026 mengadakan sesi foto bersama dengan dosen pembina. Kegiatan yang berlangsung dalam suasana hangat dan penuh keakraban ini diikuti oleh seluruh pengurus inti organisasi.
+Sesi foto tersebut tidak hanya menjadi dokumentasi resmi kepengurusan baru, tetapi juga menjadi momen berharga yang memperkuat rasa kekeluargaan antara para pengurus dengan dosen pembina. Dengan latar belakang yang menarik dan penuh semangat, seluruh anggota Badan Pengurus Harian terlihat kompak mengenakan atribut organisasi, menunjukkan keseriusan dan komitmen mereka dalam menjalankan roda organisasi selama satu periode ke depan.
+Dosen Pembina HIMAPENTIKA, [Nama Dosen Pembina], turut hadir dan memberikan arahan serta motivasi kepada para pengurus baru. Beliau menyampaikan harapan agar kepengurusan periode 2025-2026 dapat membawa HIMAPENTIKA semakin maju, aktif, dan memberikan kontribusi nyata baik bagi mahasiswa maupun program studi Pendidikan Matematika.
+Ketua HIMAPENTIKA periode 2025-2026, [Nama Ketua], mengungkapkan bahwa dokumentasi ini sangat penting. “Sesi foto ini bukan sekadar dokumentasi biasa. Ini menjadi kenangan indah sekaligus bukti perjalanan kami dalam mengemban amanah organisasi. Foto-foto ini nantinya akan kami gunakan sebagai bahan promosi resmi organisasi di media sosial dan berbagai kegiatan HIMAPENTIKA,” ujarnya.
+Melalui dokumentasi ini, HIMAPENTIKA berharap dapat memperkuat citra organisasi di mata civitas akademika Universitas Adiwangsa Jambi. Foto-foto tersebut akan menjadi bagian dari portofolio organisasi dan menjadi kenangan yang akan selalu dikenang oleh seluruh pengurus selama menjalani masa kepengurusan.
+Kegiatan ini semakin menegaskan komitmen HIMAPENTIKA untuk terus solid, profesional, dan inovatif dalam menjalankan setiap program kerjanya.</p>
+            <small style="color:#00ffd0;">Februari 2026</small>
+        </div>
+    </div>
+
+    <div class="news-card">
+        <img src="gempita-expo.jpg" alt="GEMPITA EXPO UNAJA 2026">
+        <div class="news-content">
+            <h3>GEMPITA EXPO UNAJA 2026</h3>
+            <p>HIMAPENTIKA Sukses Mencuri Perhatian di Pameran Besar Universitas Adiwangsa Jambi
+                 Himpunan Mahasiswa Pendidikan Matematika (HIMAPENTIKA) Universitas Adiwangsa Jambi kembali menunjukkan eksistensinya melalui partisipasi aktif yang sangat membanggakan dalam pameran terbesar yang diselenggarakan oleh universitas. Acara yang menjadi ajang tahunan ini berhasil menyedot ribuan pengunjung dari berbagai kalangan, mulai dari mahasiswa, dosen, hingga masyarakat umum.
+Booth HIMAPENTIKA menjadi salah satu yang paling ramai dikunjungi sepanjang penyelenggaraan pameran. Dengan konsep yang interaktif dan edukatif, stand HIMAPENTIKA tidak hanya menampilkan informasi seputar program studi Pendidikan Matematika, tetapi juga menyajikan berbagai games edukasi matematika yang menarik. Mulai dari permainan puzzle logika, kuis matematika berhadiah, hingga simulasi pembelajaran matematika yang menyenangkan, berhasil membuat pengunjung betah berlama-lama di booth tersebut.
+Selain games edukasi, HIMAPENTIKA juga menghadirkan berbagai penampilan kreatif yang semakin memeriahkan suasana. Penampilan tersebut meliputi drama edukasi bertema matematika, flashmob, serta penjelasan materi matematika secara kreatif dan mudah dipahami oleh pengunjung dari berbagai tingkat pendidikan. Kegiatan ini sekaligus menjadi sarana untuk memperkenalkan bahwa matematika bukanlah pelajaran yang menakutkan, melainkan sesuatu yang menyenangkan dan dekat dengan kehidupan sehari-hari.
+Ketua HIMAPENTIKA, [Rafly Akbar], menyampaikan bahwa partisipasi ini merupakan wujud nyata komitmen organisasi dalam mempromosikan pendidikan matematika yang inovatif. “Kami ingin membuktikan bahwa matematika bisa disampaikan dengan cara yang menyenangkan. Melalui games dan penampilan kreatif, kami harap minat masyarakat terhadap matematika semakin meningkat,” ujarnya.
+Keberhasilan booth HIMAPENTIKA ini tidak lepas dari kerja keras seluruh pengurus dan anggota yang bahu-membahu mempersiapkan konsep, dekorasi, serta materi selama berhari-hari. Antusiasme pengunjung yang tinggi menjadi bukti bahwa kegiatan semacam ini sangat dibutuhkan untuk mendekatkan ilmu matematika kepada generasi muda.
+Partisipasi HIMAPENTIKA di pameran ini diharapkan dapat menjadi inspirasi bagi himpunan-himpunan lain untuk terus berkreasi dan berinovasi dalam setiap kegiatan kemahasiswaan..</p>
+            <small style="color:#00ffd0;">Mei 2026</small>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+<h2 class="section-title">Galeri Kegiatan</h2>
+<div class="gallery-grid">
+    <div class="gallery-item"><img src="galeri1.jpg" alt="Kegiatan 1"></div>
+    <div class="gallery-item"><img src="galeri2.jpg" alt="Kegiatan 2"></div>
+    <div class="gallery-item"><img src="galeri3.jpg" alt="Kegiatan 3"></div>
+    <div class="gallery-item"><img src="galeri4.jpg" alt="Kegiatan 4"></div>
+    <div class="gallery-item"><img src="galeri5.jpg" alt="Kegiatan 5"></div>
+    <div class="gallery-item"><img src="galeri6.jpg" alt="Kegiatan 6"></div>
+    <div class="gallery-item"><img src="galeri7.jpg" alt="Kegiatan 7"></div>
+    <div class="gallery-item"><img src="galeri8.jpg" alt="Kegiatan 8"></div>
+</div>
+</section>
+
+<footer>
+<h3>Contact HIMAPENTIKA</h3>
+
+<a href="https://www.instagram.com/himapentika_unajaofficial" target="_blank">
+<img src="ig.png" alt="Instagram">
+</a>
+
+<a href="mailto:himapentikaunaja01@gmail.com">
+<img src="email.png" alt="Email">
+</a>
+
+<p>© 2026 HIMAPENTIKA UNAJA • Fakultas Sains dan Teknologi Universitas Adiwangsa Jambi</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", function(){
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
